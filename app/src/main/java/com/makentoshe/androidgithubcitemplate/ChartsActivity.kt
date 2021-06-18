@@ -16,5 +16,12 @@ class ChartsActivity : AppCompatActivity() {
             val intent = Intent(this, ArchiveActivity::class.java)
             startActivity(intent)
         }
+
+        val bHome = findViewById<ImageButton>(R.id.homeButton)
+
+        bHome.setOnClickListener{
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
