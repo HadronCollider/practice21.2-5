@@ -5,5 +5,66 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ArchiveActivity">
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="wrap_content"
+        android:layout_height="57dp"
+        android:layout_marginBottom="675dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0"
+        app:srcCompat="@drawable/logo" />
 
+    <ImageButton
+        android:id="@+id/buttonArchive"
+        android:layout_width="206dp"
+        android:layout_height="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonCharts"
+        app:layout_constraintTop_toBottomOf="@+id/logo"
+        app:srcCompat="@drawable/blackclicked" />
+
+    <ImageButton
+        android:id="@+id/buttonCharts"
+        android:layout_width="206dp"
+        android:layout_height="40dp"
+        app:layout_constraintEnd_toStartOf="@+id/buttonArchive"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo"
+        app:srcCompat="@drawable/black" />
+
+    <TextView
+        android:id="@+id/textСharts"
+        android:layout_width="81dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="6dp"
+        android:text="CHARTS"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonCharts"
+        app:layout_constraintEnd_toStartOf="@+id/buttonArchive"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textArchive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="6dp"
+        android:text="ARCHIVE"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonArchive"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/buttonArchive"
+        app:layout_constraintTop_toTopOf="@+id/buttonArchive" />
 </androidx.constraintlayout.widget.ConstraintLayout>
