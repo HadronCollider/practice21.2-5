@@ -5,6 +5,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageButton
+import androidx.viewpager2.adapter.FragmentStateAdapter
+import androidx.viewpager2.widget.ViewPager2
+import com.example.tablayout.Adapter
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 
 class MainActivity : AppCompatActivity() {
 
@@ -12,21 +17,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val bCharts = findViewById<ImageButton>(R.id.buttonCharts)
 
-        bCharts.setOnClickListener{
-            val intent = Intent(this, ChartsActivity::class.java)
-            startActivity(intent)
-        }
+        var pager: ViewPager2 = findViewById<ViewPager2>(R.id.viewPager)
+        var pageAdapter: FragmentStateAdapter = Adapter(this)
+        pager.adapter = pageAdapter;
 
-        val bArchive = findViewById<ImageButton>(R.id.buttonArchive)
-
-        bArchive.setOnClickListener{
-            val intent = Intent(this, ArchiveActivity::class.java)
-            startActivity(intent)
-        }
-
-
+        TabLayoutMediator(findViewById<TabLayout>(R.id.tabLayout), findViewById<ViewPager2>(R.id.viewPager)) { tab, position ->  findViewById<ViewPager2>(R.id.viewPager).setCurrentItem(tab.position, true)
+            if (position == 1)
+                tab.setText("ARCHIVE")
+            if (position == 0)
+                tab.setText("HOME")
+        }.attach()
 
     }
 }
