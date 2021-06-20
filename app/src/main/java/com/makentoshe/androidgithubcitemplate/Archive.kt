@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -34,7 +35,14 @@ class Archive : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_archive, container, false)
+        var view = inflater.inflate(R.layout.fragment_archive, container, false)
+        val list = (0 until 100).map { position ->
+            return@map MainActivity.Item("Хорошая работа", "Олег")
+        }
+        val recyclerView = view.findViewById<RecyclerView>(R.id.recycler_view)
+        recyclerView.adapter = MainActivity.MyRecyclerViewAdapter(list)
+        return view
+        return view
     }
 
     companion object {
