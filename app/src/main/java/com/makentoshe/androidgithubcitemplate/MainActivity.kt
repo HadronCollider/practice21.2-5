@@ -15,6 +15,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.example.tablayout.Adapter
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import de.hdodenhof.circleimageview.CircleImageView
 
 class MainActivity : AppCompatActivity() {
 
@@ -54,6 +55,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val icon: CircleImageView = view.findViewById(R.id.icon)
         val titleView: TextView = view.findViewById(R.id.title)
         val subscriprionView: TextView = view.findViewById(R.id.subscription)
     }
