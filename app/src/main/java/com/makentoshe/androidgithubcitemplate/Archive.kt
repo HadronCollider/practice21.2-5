@@ -42,7 +42,6 @@ class Archive : Fragment() {
         val recyclerView = view.findViewById<RecyclerView>(R.id.recycler_view)
         recyclerView.adapter = MainActivity.MyRecyclerViewAdapter(list)
         return view
-        return view
     }
 
     companion object {
