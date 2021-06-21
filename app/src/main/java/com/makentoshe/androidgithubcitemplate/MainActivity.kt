@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.SearchView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.adapter.FragmentStateAdapter
@@ -35,6 +36,15 @@ class MainActivity : AppCompatActivity() {
                 tab.setText("HOME")
         }.attach()
 
+        findViewById<SearchView>(R.id.search).setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(text: String?): Boolean {
+                println(text)
+                return false
+            }
+            override fun onQueryTextChange(text: String?): Boolean {
+                return false
+            }
+        })
     }
     data class Item(val title: String, val subscription: String)
 
@@ -59,4 +69,6 @@ class MainActivity : AppCompatActivity() {
         val titleView: TextView = view.findViewById(R.id.title)
         val subscriprionView: TextView = view.findViewById(R.id.subscription)
     }
+
+
 }
