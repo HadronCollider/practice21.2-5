@@ -3,6 +3,7 @@ package com.makentoshe.androidgithubcitemplate
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
 
 class MyRecyclerViewAdapter(private val list: ArrayList<Item>) :
     RecyclerView.Adapter<MyViewHolder>() {
@@ -15,7 +16,12 @@ class MyRecyclerViewAdapter(private val list: ArrayList<Item>) :
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.titleView.text = list[position].title
         holder.subscriprionView.text = list[position].subscription
-        holder.icon.setImageResource(list[position].imageId)
+        //holder.icon.setImageResource(list[position].imageId)
+        Picasso.with(holder.itemView.context)
+            .load(list[position].imageURL)
+            .placeholder(R.drawable.black)
+            .error(R.drawable.black)
+            .into(holder.icon)
     }
 
     override fun getItemCount(): Int {

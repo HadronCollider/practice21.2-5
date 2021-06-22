@@ -81,6 +81,7 @@ class Parse {
                         .getJSONObject("primary_artist").getLong("id")
                 )
                 songs.add(Song(name, id, artist))
+                songs.get(i).imgURL=responseSearch.getJSONObject(i).getJSONObject("result").getString("song_art_image_url")
             }
 
             return songs
