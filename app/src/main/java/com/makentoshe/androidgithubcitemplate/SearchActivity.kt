@@ -22,9 +22,10 @@ class SearchActivity : AppCompatActivity() {
             for (i in 0 until min(10, songSearch.size)) {
                 list.add(
                     Item(
-                        songSearch.get(i).artist.name,
                         songSearch.get(i).name,
-                        R.drawable.black
+                        songSearch.get(i).artist.name,
+                        R.drawable.black,
+                        songSearch.get(i).id.toString()
                     )
                 )
             }
@@ -32,5 +33,7 @@ class SearchActivity : AppCompatActivity() {
                 recyclerView.adapter = MyRecyclerViewAdapter(list)
             }
         }
+        
+
     }
 }

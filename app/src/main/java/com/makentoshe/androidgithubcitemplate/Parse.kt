@@ -3,6 +3,8 @@ package com.makentoshe.androidgithubcitemplate
 import com.makentoshe.androidgithubcitemplate.Connection.connect
 import com.makentoshe.androidgithubcitemplate.Connection.streamToString
 import org.json.JSONObject
+import java.net.HttpURLConnection
+import java.net.URL
 import java.util.ArrayList
 
 class Parse {
@@ -12,7 +14,7 @@ class Parse {
             val m: MutableMap<String, String> = HashMap()
             m["Authorization"] =
                 "Bearer rEUF2cIT7X1xdQ1CkDIRIAjreSMKauHI68IlzmpKuduZU5bmwXmxPdY_M2Ybdzub"
-
+            var textFinder: TextFinder = TextFinder
             val htpSongs = connect("https://api.genius.com/songs/" + args, "GET", null, m)
             var responseSong = JSONObject(streamToString(htpSongs.inputStream))
                 .getJSONObject("response")
@@ -27,6 +29,17 @@ class Parse {
             //var descriptionArray=responseSong.getJSONObject("song").getJSONObject("description_annotation").getJSONObject("annotations").getJSONObject("0").getJSONObject("body").getJSONObject("dom").getJSONArray("children")
             var song = Song(name, id, artist)
             song.album = album
+
+            val url = URL(responseSong.getString("url"))
+            val urlConnection = url.openConnection() as HttpURLConnection
+            try {
+                val text = urlConnection.inputStream.bufferedReader().readText()
+                //var lyrics= Log.d("UrlTest", text)
+                song.lyrics=textFinder.findText(text)
+                println(song.lyrics)
+            } finally {
+                urlConnection.disconnect()
+            }
             return song
         }
 
