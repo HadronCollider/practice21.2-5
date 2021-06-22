@@ -5,4 +5,5 @@ import java.util.ArrayList
 class Song (var name: String, var id: Long,  var artist: Artist){
     var album: String = " "
     var lyrics: String? = " "
+    var imgURL: String = ""
 }

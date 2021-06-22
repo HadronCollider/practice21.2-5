@@ -6,11 +6,10 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import de.hdodenhof.circleimageview.CircleImageView
 
-class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+class MyViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
     val icon: CircleImageView = view.findViewById(R.id.icon)
     val titleView: TextView = view.findViewById(R.id.title)
     val subscriprionView: TextView = view.findViewById(R.id.group)
-
 }
 
-data class Item(val title: String, val subscription: String, val imageId: Int, val id: String)
+data class Item(val title: String, val subscription: String, val imageURL: String, val id: String)

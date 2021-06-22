@@ -6,10 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
 import kotlin.concurrent.thread
 import kotlin.math.min
 
 class SearchActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //var intent = getIntent()
@@ -24,7 +26,8 @@ class SearchActivity : AppCompatActivity() {
                     Item(
                         songSearch.get(i).name,
                         songSearch.get(i).artist.name,
-                        R.drawable.black,
+                        //R.drawable.black,
+                        songSearch.get(i).imgURL,
                         songSearch.get(i).id.toString()
                     )
                 )
@@ -33,7 +36,5 @@ class SearchActivity : AppCompatActivity() {
                 recyclerView.adapter = MyRecyclerViewAdapter(list)
             }
         }
-        
-
     }
 }
