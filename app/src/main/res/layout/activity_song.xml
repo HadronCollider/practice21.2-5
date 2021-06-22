@@ -36,7 +36,7 @@
         android:fillViewport="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
         app:layout_constraintVertical_bias="0.0">
@@ -44,14 +44,16 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="10dp">
 
             <TextView
                 android:id="@+id/title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
                 android:text="aehheah"
+                android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textColor="#000000"
                 android:textSize="30sp" />
@@ -60,11 +62,29 @@
                 android:id="@+id/group"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
-                android:layout_marginStart="10dp"
                 android:text="sdfsdfsdf"
+                android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textColor="#515151"
                 android:textSize="20sp" />
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="wrap_content"
+                android:layout_height="150dp"
+                android:adjustViewBounds="true"
+                app:srcCompat="@drawable/ic_launcher_background" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:text="[Текст песни «Люби меня, люби»]  [Куплет] Непокорная моя любовь Любит не меня уже который год Те же стены и цветы, те же люди и стихи Те же мысли и слова вслух  [Припев] Люби меня, люби жарким огнем Ночью и днем, сердце сжигая Люби меня, люби, не улетай Не исчезай, я умоляю Люби меня, люби Люби меня, люби  [Куплет] Непокорная моя любовь Любит не меня уже который год Те же стены и цветы, те же люди и стихи Те же мысли и слова вслух  [Припев] Люби меня, люби жарким огнем Ночью и днем, сердце сжигая Люби меня, люби, не улетай Не исчезай, я умоляю  [Рефрен] Люби меня, люби Люби меня, люби Люби меня, люби Люби меня, люби  [Припев] Люби меня, люби жарким огнем Ночью и днем, сердце сжигая Люби меня, люби, не улетай Не исчезай, я умоляю Люби меня, люби жарким огнем Ночью и днем, сердце сжигая Люби меня, люби, не улетай Не исчезай, я умоляю Люби меня, люби"
+                android:textColor="#000000"
+                android:textSize="22sp" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
