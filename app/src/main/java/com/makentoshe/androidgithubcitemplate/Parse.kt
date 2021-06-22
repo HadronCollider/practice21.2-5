@@ -21,14 +21,14 @@ class Parse {
                 .getJSONObject("song")
             var name = responseSong.getString("title")
             var id = responseSong.getLong("id")
-            var album = responseSong.getJSONObject("album").getString("name")
+            //var album = responseSong.getJSONObject("album").getString("name")
             var artist = Artist(
                 responseSong.getJSONObject("primary_artist").getString("name"),
                 responseSong.getJSONObject("primary_artist").getLong("id")
             )
             //var descriptionArray=responseSong.getJSONObject("song").getJSONObject("description_annotation").getJSONObject("annotations").getJSONObject("0").getJSONObject("body").getJSONObject("dom").getJSONArray("children")
             var song = Song(name, id, artist)
-            song.album = album
+       //     song.album = album
 
             val url = URL(responseSong.getString("url"))
             val urlConnection = url.openConnection() as HttpURLConnection
@@ -40,6 +40,7 @@ class Parse {
             } finally {
                 urlConnection.disconnect()
             }
+            song.imgURL=responseSong.getString("song_art_image_url")
             return song
         }
 
