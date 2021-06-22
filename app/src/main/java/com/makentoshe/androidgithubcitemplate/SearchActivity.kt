@@ -1,5 +1,6 @@
 package com.makentoshe.androidgithubcitemplate
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -26,14 +27,21 @@ class SearchActivity : AppCompatActivity() {
                     Item(
                         songSearch.get(i).name,
                         songSearch.get(i).artist.name,
-                        //R.drawable.black,
                         songSearch.get(i).imgURL,
                         songSearch.get(i).id.toString()
                     )
                 )
             }
+            val context = this
             runOnUiThread {
-                recyclerView.adapter = MyRecyclerViewAdapter(list)
+                recyclerView.adapter = MyRecyclerViewAdapter(list, object: MyOnClickListener{
+                    override fun onClicked(id: String) {
+                        val intent = Intent(context, SongActivity::class.java)
+                        intent.putExtra("id", id)
+                        startActivity(intent)
+                    }
+
+                })
             }
         }
     }
