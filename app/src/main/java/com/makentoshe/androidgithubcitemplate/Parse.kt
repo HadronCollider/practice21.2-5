@@ -36,7 +36,7 @@ class Parse {
                 val text = urlConnection.inputStream.bufferedReader().readText()
                 //var lyrics= Log.d("UrlTest", text)
                 song.lyrics=textFinder.findText(text)
-                println(song.lyrics)
+//                println(song.lyrics)
             } finally {
                 urlConnection.disconnect()
             }

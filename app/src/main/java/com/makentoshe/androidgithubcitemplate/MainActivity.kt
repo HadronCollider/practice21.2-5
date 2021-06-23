@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
                     for (a in searchText.split(" ")) {
                         end = end + a + "%20"
                     }
-                    searchText = searchText.substring(0, searchText.length - 3)
+//                    searchText = searchText.substring(0, searchText.length - 3)
                     intent.putExtra("search", searchText)
                     startActivity(intent)
                 }

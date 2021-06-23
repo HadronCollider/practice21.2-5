@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
+import android.widget.ProgressBar
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import kotlin.concurrent.thread
@@ -19,6 +21,9 @@ class SearchActivity : AppCompatActivity() {
         var searchText = intent.getStringExtra("search")!!
         setContentView(R.layout.activity_search)
         val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
+        val progressBar: ProgressBar = findViewById<ProgressBar>(R.id.progress)
+        findViewById<ImageButton>(R.id.button).setOnClickListener(View.OnClickListener { onBackPressed() })
+
         thread(start = true) {
             var songSearch = Parse.parsingSearch(searchText)
             val list: ArrayList<Item> = ArrayList()
@@ -42,6 +47,7 @@ class SearchActivity : AppCompatActivity() {
                     }
 
                 })
+                progressBar.visibility = ProgressBar.INVISIBLE
             }
         }
     }
