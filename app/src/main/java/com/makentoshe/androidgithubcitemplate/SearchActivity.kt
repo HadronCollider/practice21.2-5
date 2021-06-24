@@ -10,6 +10,8 @@ import android.widget.ImageButton
 import android.widget.ProgressBar
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.activity_search.*
+import java.io.File
 import kotlin.concurrent.thread
 import kotlin.math.min
 
@@ -44,10 +46,26 @@ class SearchActivity : AppCompatActivity() {
                         val intent = Intent(context, SongActivity::class.java)
                         intent.putExtra("id", id)
                         startActivity(intent)
+                        var result = true
+                        var home = File(filesDir, "home.txt")
+                        if (home.exists()) {
+                            var idSongs = home.readText().trim().split(" ")
+                            for (i in 0 until idSongs.size) {
+                                if (id.equals(
+                                        idSongs.get(i)
+                                    )
+                                ) result = false
+                            }
+                            if (result) {
+                                home.appendText("$id ")
+                            }
+                        } else home.writeText("$id ")
+                        findViewById<ImageButton>(R.id.heart).setImageResource(R.drawable.heartpressed)
                     }
 
                 })
                 progressBar.visibility = ProgressBar.INVISIBLE
+                recycler_view.visibility = RecyclerView.VISIBLE
             }
         }
     }
