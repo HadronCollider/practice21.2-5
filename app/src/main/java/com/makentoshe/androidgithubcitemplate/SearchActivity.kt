@@ -60,7 +60,6 @@ class SearchActivity : AppCompatActivity() {
                                 home.appendText("$id ")
                             }
                         } else home.writeText("$id ")
-                        findViewById<ImageButton>(R.id.heart).setImageResource(R.drawable.heartpressed)
                     }
 
                 })
